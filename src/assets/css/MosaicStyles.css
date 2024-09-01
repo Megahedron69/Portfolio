@@ -1,0 +1,66 @@
+.mosaic-container {
+  width: 100%;
+  padding: 10px;
+  border-radius: 12px;
+  position: relative; /* Required for the pseudo-elements to work */
+  overflow-x: hidden; /* Hide the scrollbar and prevent overflow */
+}
+
+.mosaic-container::before,
+.mosaic-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px; /* Adjust the width as needed */
+  pointer-events: none;
+  z-index: 1;
+}
+
+.mosaic-container::before {
+  left: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.5),
+    rgba(255, 255, 255, 0)
+  );
+}
+
+.mosaic-container::after {
+  right: 0;
+  background: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 0.5),
+    rgba(255, 255, 255, 0)
+  );
+}
+
+.icon-wrapper i,
+.icon-wrapper img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .icon-wrapper {
+    margin: 5px;
+  }
+
+  .icon-wrapper i,
+  .icon-wrapper img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (min-width: 769px) {
+  .icon-wrapper {
+    margin: 10px;
+  }
+
+  .icon-wrapper i,
+  .icon-wrapper img {
+    width: 50px;
+    height: 50px;
+  }
+}

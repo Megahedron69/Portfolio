@@ -1,0 +1,108 @@
+.chip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto; /* Smaller width */
+  height: auto; /* Smaller height */
+  padding: 5px 10px; /* Adjusted padding */
+  margin: 8px;
+  border-radius: 50px; /* More rounded */
+  background: linear-gradient(
+    45deg,
+    #232526,
+    #414345
+  ); /* Fallback background */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  font-size: 0.8rem; /* Smaller font size */
+  color: #fff;
+  cursor: pointer;
+  position: relative; /* Make sure it's relative to contain the glow */
+}
+
+.chip:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.glowBorder {
+  display: flex;
+  align-items: center;
+
+  width: inherit;
+  height:inherit
+  margin: auto;
+
+  position: relative;
+
+  box-sizing: border-box;
+
+  border: 2px;
+  color: #fff;
+  background: inherit;
+  background-clip: padding-box; /* !importanté */
+  border: solid  transparent; /* !importanté */
+  border-radius: 50px;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    margin: -4px; /* !importanté */
+    border-radius: inherit; /* !importanté */
+    background: linear-gradient(to right,hsl(45, 100%, 72%),hsl(35, 100%, 68%));
+  }
+  animation: 8s rotate linear infinite;
+}
+
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+.glowBorder::after {
+  filter: blur(40px);
+  opacity: 0.99;
+}
+
+
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px; /* Adjust margin */
+  font-size: 1.2rem; /* Adjusted size */
+}
+
+.avatar img {
+  width: 20px; /* Adjusted size */
+  height: 20px; /* Adjusted size */
+}
+
+@media (max-width: 768px) {
+  .chip,
+   {
+    font-size: 0.7rem;
+    width: 70px; /* Smaller on mobile */
+    height: 28px; /* Smaller on mobile */
+    padding: 4px 8px;
+  }
+
+  .avatar img,
+   {
+    width: 18px;
+    height: 18px;
+    font-size: 1rem;
+  }
+
+ 
+}

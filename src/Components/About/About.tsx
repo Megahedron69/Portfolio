@@ -1,6 +1,7 @@
 import type { FC } from "react";
 import Mosaic from "./Mosaic";
-import { serviceObj } from "../../Constants";
+import { serviceObj } from "../../Utils/Constants";
+
 const About: FC = () => {
   return (
     <article className="about">
@@ -28,7 +29,12 @@ const About: FC = () => {
             return (
               <li key={index} className="service-item">
                 <div className="service-icon-box">
-                  <img src={item.src} alt={item.alt} width={40} />
+                  <img
+                    src={item.src}
+                    alt={item.alt}
+                    width={40}
+                    loading="eager"
+                  />
                 </div>
                 <div className="service-content-box">
                   <h4 className="h4 service-item-title">{item.title}</h4>

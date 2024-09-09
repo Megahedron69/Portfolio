@@ -1,56 +1,33 @@
-import type { FC } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { type FC, useMemo } from "react";
+import { useLocation, NavLink } from "react-router-dom";
+import { navItems } from "../../Utils/Constants";
 
 const Navbar: FC = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
+  const { pathname } = useLocation();
+
+  const shouldHideNavbar = useMemo(() => {
+    return pathname.startsWith("/Portfolio/") && pathname !== "/Portfolio";
+  }, [pathname]);
+
+  if (shouldHideNavbar) {
+    return null;
+  }
 
   return (
     <nav className="navbar">
       <ul className="navbar-list">
-        <li className="navbar-item">
-          <button
-            className={`navbar-link ${
-              location.pathname === "/About" ? "active" : ""
-            }`}
-            onClick={() => navigate("/About")}
-          >
-            About
-          </button>
-        </li>
-
-        <li className="navbar-item">
-          <button
-            className={`navbar-link ${
-              location.pathname === "/Resume" ? "active" : ""
-            }`}
-            onClick={() => navigate("/Resume")}
-          >
-            Resume
-          </button>
-        </li>
-
-        <li className="navbar-item">
-          <button
-            className={`navbar-link ${
-              location.pathname === "/Portfolio" ? "active" : ""
-            }`}
-            onClick={() => navigate("/Portfolio")}
-          >
-            Portfolio
-          </button>
-        </li>
-
-        <li className="navbar-item">
-          <button
-            className={`navbar-link ${
-              location.pathname === "/Contact" ? "active" : ""
-            }`}
-            onClick={() => navigate("/Contact")}
-          >
-            Contact
-          </button>
-        </li>
+        {navItems.map((item) => (
+          <li className="navbar-item" key={item.path}>
+            <NavLink
+              to={item.path}
+              className={({ isActive }) =>
+                `navbar-link ${isActive ? "active" : ""}`
+              }
+            >
+              {item.label}
+            </NavLink>
+          </li>
+        ))}
       </ul>
     </nav>
   );

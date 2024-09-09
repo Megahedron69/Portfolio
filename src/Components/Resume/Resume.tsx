@@ -1,10 +1,16 @@
 import type { FC } from "react";
 import Timeline from "./Timeline";
-import { EduTimeLine, CareerTimeline } from "../../Constants";
+import { EduTimeLine, CareerTimeline } from "../../Utils/Constants";
 import { IonIcon } from "@ionic/react";
 import { rocketOutline, bookOutline, trendingUpOutline } from "ionicons/icons";
-import { skillTree } from "../../Constants";
+import { skillTree } from "../../Utils/Constants";
 import SkillCategory from "./Skills";
+
+const programmingLanguages = skillTree.slice(0, 12);
+const databaseSkills = skillTree.slice(12, 17);
+const tools = skillTree.slice(17, 28);
+const frameworks = skillTree.slice(28);
+
 const Resume: FC = () => {
   return (
     <article className="resume">
@@ -31,11 +37,11 @@ const Resume: FC = () => {
         <ul className="skills-list content-card">
           <SkillCategory
             title="Programming Languages"
-            skills={skillTree.slice(0, 12)}
+            skills={programmingLanguages}
           />
-          <SkillCategory title="Database" skills={skillTree.slice(12, 17)} />
-          <SkillCategory title="Tools" skills={skillTree.slice(17, 28)} />
-          <SkillCategory title="Frameworks" skills={skillTree.slice(28)} />
+          <SkillCategory title="Database" skills={databaseSkills} />
+          <SkillCategory title="Tools" skills={tools} />
+          <SkillCategory title="Frameworks" skills={frameworks} />
         </ul>
       </section>
     </article>

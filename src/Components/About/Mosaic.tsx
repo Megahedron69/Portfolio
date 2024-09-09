@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import { skillTree } from "../../Constants";
+import { skillTree } from "../../Utils/Constants";
 import { useState, useEffect } from "react";
 import Marquee from "react-fast-marquee";
 import "../../assets/css/MosaicStyles.css";
@@ -22,7 +22,6 @@ const Mosaic: FC = () => {
     setShuffledSkills(shuffleArray([...skillTree]));
   }, []);
 
-  // Split into 3 rows
   const rows = [
     shuffledSkills.slice(0, Math.ceil(shuffledSkills.length / 3)),
     shuffledSkills.slice(
@@ -41,7 +40,10 @@ const Mosaic: FC = () => {
             title={skill.name}
             onMouseOver={() => setHover(true)}
             onMouseOut={() => setHover(false)}
-            style={{ fontSize: "96px", color: hover == false ? "white" : "" }}
+            style={{
+              fontSize: "96px",
+              color: hover == false ? "white" : "",
+            }}
           ></i>
         )}
         {skill.svgURL && (
@@ -49,6 +51,7 @@ const Mosaic: FC = () => {
             src={skill.svgURL}
             alt={skill.name}
             title={skill.name}
+            loading="lazy"
             onMouseOver={() => setHover(true)}
             onMouseOut={() => setHover(false)}
             style={{

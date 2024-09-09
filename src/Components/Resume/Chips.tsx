@@ -1,4 +1,4 @@
-import { type FC } from "react";
+import { type FC, memo } from "react";
 import "../../assets/css/ChipStyles.css";
 type chipProps = {
   name: string;
@@ -20,7 +20,7 @@ const Chip: FC<chipProps> = ({ name, icon, svgURL }) => {
         {icon ? (
           <i className={icon + " colored"} title={name}></i>
         ) : (
-          <img src={svgURL} alt={name} />
+          svgURL && <img src={svgURL} alt={name} loading="lazy" />
         )}
       </div>
       <span>{name}</span>
@@ -28,4 +28,4 @@ const Chip: FC<chipProps> = ({ name, icon, svgURL }) => {
   );
 };
 
-export default Chip;
+export default memo(Chip);

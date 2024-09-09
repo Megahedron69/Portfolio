@@ -1,19 +1,9 @@
-import { type FC, useState } from "react";
+import { type FC } from "react";
 import { IonIcon } from "@ionic/react";
 import { paperPlane } from "ionicons/icons";
 import hireMeLogo from "../../assets/images/bmc-logo.svg";
 import { motion } from "framer-motion";
 const Contact: FC = () => {
-  const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true);
-
-  const handleInputChange = (e) => {
-    const form = e.target.form;
-    const isValid = Array.from(form.elements).every((input) => {
-      return input.type !== "submit" && input.checkValidity();
-    });
-    setIsButtonDisabled(!isValid);
-  };
-
   return (
     <article className="contact" data-page="contact">
       <header>
@@ -73,7 +63,6 @@ const Contact: FC = () => {
               data-form-input=""
               pattern="^[a-zA-Z\s]{3,}$"
               title="Name should be at least 3 characters long and only contain letters."
-              onChange={handleInputChange}
             />
             <input
               type="email"
@@ -84,7 +73,6 @@ const Contact: FC = () => {
               data-form-input=""
               pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
               title="Please enter a valid email address."
-              onChange={handleInputChange}
             />
           </div>
           <textarea

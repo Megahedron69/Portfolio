@@ -103,7 +103,6 @@
   /**
    * transition
    */
-
   --transition-1: 0.25s ease;
   --transition-2: 0.5s ease-in-out;
 }
@@ -119,7 +118,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+*::marker {
+  color: var(--vegas-gold);
+}
 a {
   text-decoration: none;
 }
@@ -652,16 +653,6 @@ main {
   line-height: 1.6;
 }
 
-/* .timeline-item:not(:last-child)::before {
-  content: "";
-  position: absolute;
-  top: -25px;
-  left: -30px;
-  width: 1px;
-  height: calc(100% + 50px);
-  background: var(--jet);
-} */
-
 .timeline-item::after {
   content: "";
   position: absolute;
@@ -683,6 +674,14 @@ main {
 /**
  * skills 
  */
+.skills-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: inherit;
+  align-items: center;
+  justify-content: flex-start;
+}
 
 .skills-title {
   margin-bottom: 20px;
@@ -1618,6 +1617,32 @@ textarea.form-input::-webkit-resizer {
     margin-bottom: 30px;
   }
 
+  .filter-item .filter-chip {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    font-size: 13px;
+    color: var(--light-gray);
+    background: linear-gradient(45deg, #232526, #414345);
+    border-radius: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: var(--transition-1);
+    border: none;
+    transition: color 0.5s ease, border 0.5s ease, box-shadow 0.3s ease;
+  }
+
+  .filter-chip:hover {
+    color: var(--light-gray-70);
+  }
+
+  .filter-chip.active {
+    color: var(--orange-yellow-crayola);
+    border: 2px solid;
+
+    border-image-slice: 1;
+    border-radius: 20px;
+  }
+
   .filter-item button {
     color: var(--light-gray);
     font-size: var(--fs-5);
@@ -1741,7 +1766,9 @@ textarea.form-input::-webkit-resizer {
   .testimonials-item {
     min-width: calc(50% - 15px);
   }
-
+  .filter-item .filter-chip {
+    font-size: var(--fs-5);
+  }
   /* clients */
 
   .clients-item {
@@ -1905,4 +1932,16 @@ textarea.form-input::-webkit-resizer {
   .timeline-text {
     max-width: 700px;
   }
+}
+
+.projectContainer {
+  background-color: var(--bg-gradient-jet);
+}
+.projectCard {
+  background-color: var(--bg-gradient-onyx);
+  border-radius: 12px;
+  width: 100%;
+  height: 100%;
+  padding: 35px;
+  z-index: 20;
 }

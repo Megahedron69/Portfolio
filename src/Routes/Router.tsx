@@ -8,15 +8,18 @@ import About from "../Components/About/About";
 import Contact from "../Components/Contact/Contact";
 import Portfolio from "../Components/Portfolio/Portfolio";
 import Resume from "../Components/Resume/Resume";
+import ProjectLayout from "../Components/Portfolio/ProjectLayout";
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" element={<Layout />}>
-        <Route index path="About" element={<About />} />
+        <Route index element={<About />} />
         <Route path="Resume" element={<Resume />} />
         <Route path="Portfolio" element={<Portfolio />} />
+        <Route path="/Portfolio/:projName" element={<ProjectLayout />} />
         <Route path="Contact" element={<Contact />} />
       </Route>
+
       <Route
         path="*"
         element={

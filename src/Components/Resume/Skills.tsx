@@ -2,7 +2,7 @@ import { type FC } from "react";
 import Chip from "./Chips";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import type { Skill } from "../../Constants";
+import type { Skill } from "../../Utils/Constants";
 type SkillCategoryProps = {
   title: string;
   skills: Skill[];
@@ -18,16 +18,7 @@ const SkillCategory: FC<SkillCategoryProps> = ({ title, skills }) => {
       <div className="title-wrapper">
         <h5 className="h5">{title}</h5>
       </div>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          flexWrap: "wrap",
-          width: "inherit",
-          alignItems: "center",
-          justifyContent: "flex-start",
-        }}
-      >
+      <div className="skills-container">
         {skills.map((skill, index) => (
           <motion.div
             key={index} // Move key here to avoid React warnings

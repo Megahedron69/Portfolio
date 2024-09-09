@@ -1,32 +1,18 @@
-import { useEffect, useState, type FC } from "react";
+import { useState, type FC, useCallback } from "react";
 import { IonIcon } from "@ionic/react";
-import {
-  chevronDown,
-  mailOutline,
-  phonePortraitOutline,
-  calendarOutline,
-  logoGooglePlaystore,
-  locationOutline,
-  logoGithub,
-  logoLinkedin,
-  mail,
-} from "ionicons/icons";
-
+import { chevronDown } from "ionicons/icons";
 import myAvatar from "../../assets/images/my-avatar.png";
+import { sideBar2, sidebarTopItems } from "../../Utils/Constants";
+
 const Sidebar: FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
 
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
-  useEffect(() => {}, []);
+  const toggleSidebar = useCallback(() => {
+    setIsSidebarOpen((prevState) => !prevState);
+  }, []);
+
   return (
-    <aside
-      className={`sidebar  
- ${isSidebarOpen ? "active" : ""}`}
-      data-sidebar
-    >
-      <script src="../../Utils/sideBarBtn.ts" />
+    <aside className={`sidebar ${isSidebarOpen ? "active" : ""}`} data-sidebar>
       <div className="sidebar-info">
         <figure className="avatar-box">
           <img src={myAvatar} alt="Kartic Joshi" width={80} />
@@ -35,7 +21,7 @@ const Sidebar: FC = () => {
           <h1 className="name" title="Kartic Joshi">
             Kartic Joshi
           </h1>
-          <p className="title">Full stack developer </p>
+          <p className="title">Full stack developer</p>
         </div>
         <button
           className="info_more-btn"
@@ -49,76 +35,38 @@ const Sidebar: FC = () => {
       <div className="sidebar-info_more">
         <div className="separator" />
         <ul className="contacts-list">
-          <li className="contact-item">
-            <div className="icon-box">
-              <IonIcon icon={mailOutline} />
-            </div>
-            <div className="contact-info">
-              <p className="contact-title">Email</p>
-              <a href="mailto:karticjoshi68@gmail.com" className="contact-link">
-                karticjoshi68@gmail.com
-              </a>
-            </div>
-          </li>
-          <li className="contact-item">
-            <div className="icon-box">
-              <IonIcon icon={phonePortraitOutline} />
-            </div>
-            <div className="contact-info">
-              <p className="contact-title">Phone</p>
-              <a href="tel:+918826230733" className="contact-link">
-                +918826230733
-              </a>
-            </div>
-          </li>
-          <li className="contact-item">
-            <div className="icon-box">
-              <IonIcon icon={calendarOutline} />
-            </div>
-            <div className="contact-info">
-              <p className="contact-title">Age</p>
-              <time dateTime="1982-06-23">23</time>
-            </div>
-          </li>
-          <li className="contact-item">
-            <div className="icon-box">
-              <IonIcon icon={locationOutline} />
-            </div>
-            <div className="contact-info">
-              <p className="contact-title">Location</p>
-              <address>Delhi, India</address>
-            </div>
-          </li>
+          {sidebarTopItems.map(({ icon, title, link, text }, index) => (
+            <li className="contact-item" key={index}>
+              <div className="icon-box">
+                <IonIcon icon={icon} />
+              </div>
+              <div className="contact-info">
+                <p className="contact-title">{title}</p>
+                {link ? (
+                  <a href={link} className="contact-link">
+                    {text}
+                  </a>
+                ) : (
+                  <address>{text}</address>
+                )}
+              </div>
+            </li>
+          ))}
         </ul>
         <div className="separator" />
         <ul className="social-list">
-          <li className="social-item">
-            <a href="mailto:karticjoshi68@gmail.com" className="social-link">
-              <IonIcon icon={mail} />
-            </a>
-          </li>
-          <li className="social-item">
-            <a href="https://github.com/Megahedron69" className="social-link">
-              <IonIcon icon={logoGithub} />
-            </a>
-          </li>
-          <li className="social-item">
-            <a
-              href="https://www.linkedin.com/in/kartic-joshi-a4558a137/"
-              className="social-link"
-            >
-              <IonIcon icon={logoLinkedin} />
-            </a>
-          </li>
-          <li className="social-item">
-            <a
-              href="https://play.google.com/store/apps/details?id=com.kartodevs.ecosorter
-"
-              className="social-link"
-            >
-              <IonIcon icon={logoGooglePlaystore} />
-            </a>
-          </li>
+          {sideBar2.map(({ link, icon }, index) => (
+            <li className="social-item" key={index}>
+              <a
+                href={link}
+                className="social-link"
+                target="_blank"
+                rel="noopener noreferrer" // Added rel attribute for security
+              >
+                <IonIcon icon={icon} />
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
     </aside>

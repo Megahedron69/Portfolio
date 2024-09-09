@@ -3,6 +3,10 @@ import webDevIco from "../assets/images/icon-dev.svg";
 import mobIco from "../assets/images/icon-app.svg";
 import serverIco from "../assets/images/server-outline.svg";
 
+import des1 from "../assets/images/Designs/PlantAppUI.png";
+import des2 from "../assets/images/Designs/Slavy.png";
+import des3 from "../assets/images/Designs/IconSet.jpg";
+
 import {
   laptopOutline,
   phonePortraitOutline,
@@ -490,24 +494,21 @@ export const projectPallete: projectTypes[] = [
   {
     name: "Plant Scan Design",
     url: "",
-    coverImg:
-      "https://s3-alpha.figma.com/thumbnails/383416a5-b7f4-497c-ba4f-6d7d8eb22cd4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQ4GOSFWCQSQOB235%2F20240901%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240901T120000Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=ca3586eae92da94bb5b27a66f832463c756cb7074a8fa4bf6d32f2f5a759f697",
+    coverImg: des1,
     imgAlt: "Figma Design",
     category: "Web Design",
   },
   {
     name: "Slavy Dashboard Design",
     url: "",
-    coverImg:
-      "https://s3-alpha.figma.com/thumbnails/2da97c83-879d-44cf-85a6-080f3c1b0f81?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQ4GOSFWCQSQOB235%2F20240901%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240901T120000Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=87396fd259a996a2fb6c55da63fe4374c70cee6ce414ca16d12026406756e9ce",
+    coverImg: des2,
     imgAlt: "Dashboard Figma",
     category: "Web Design",
   },
   {
     name: "Icon Set",
     url: "",
-    coverImg:
-      "https://s3-alpha.figma.com/thumbnails/8449d627-60dd-46c7-b0c9-93be5996da77?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQ4GOSFWCQSQOB235%2F20240901%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240901T120000Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=b97d8287d1d5a3ecf6ab75a63e4702652f840a933e16fc7bdb0f5f62258ca9e1",
+    coverImg: des3,
     imgAlt: "Dashboard Figma",
     category: "Web Design",
   },

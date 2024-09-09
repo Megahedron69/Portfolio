@@ -70,7 +70,7 @@ const CustomCarousel: FC<Props> = ({ images, isApp }) => {
         {images?.map((src: string, index: any) => (
           <SwiperSlide key={index} className="bro">
             <img
-              loading="lazy"
+              loading="eager"
               src={src}
               alt={`slide-${index}`}
               className="carousel-image"

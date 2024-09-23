@@ -458,7 +458,7 @@ export const projectPallete: projectTypes[] = [
       "Ecosorter is an intuitive waste management app that uses AI to help you easily identify and categorize waste into eight types. With a sleek design, fluid animations, and personalized light and dark themes, it not only simplifies waste sorting but also engages users with educational content, leaderboards, and push notifications for an interactive experience.",
     gitURL: "https://github.com/Megahedron69/EcoSorter",
     downloadURL:
-      "https://github.com/Megahedron69/EcoSorter/releases/download/v1.3.0/application-767d49fc-a994-4312-a990-429ec9a6157c.apk",
+      "https://github.com/Megahedron69/EcoSorter/releases/download/v1.5.0/Ecosorter1.5.0.apk",
     features: ecosorterFeatures,
   },
   {

@@ -4,7 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="
+    default-src 'self';
+    script-src 'self' https://cdnjs.cloudflare.com;
+    style-src 'self' https://fonts.googleapis.com 'unsafe-inline';
+    img-src 'self' https: data:;
+    font-src 'self' https://fonts.gstatic.com;
+    frame-src 'self';
+  "
+    />
     <!-- Title and description -->
     <title>Kartic Joshi | Portfolio</title>
     <meta
@@ -26,14 +36,15 @@
       property="og:description"
       content="Explore the portfolio of Kartic, showcasing full-stack development projects."
     />
-    <meta property="og:image" content="/OGbanner.png" />
+    <meta
+      property="og:image"
+      itemprop="image"
+      content="https://i.imgur.com/X2JZLI1.png"
+    />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
-    <meta
-      property="og:url"
-      content="https://megahedron69.github.io/personal-porto/"
-    />
+    <meta property="og:url" content="https://megacreate.netlify.app/" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_US" />
 
@@ -44,7 +55,7 @@
       name="twitter:description"
       content="Explore the portfolio of Kartic, showcasing full-stack development projects."
     />
-    <meta name="twitter:image" content="/OGbanner.png" />
+    <meta name="twitter:image" content="https://i.imgur.com/X2JZLI1.png" />
     <meta name="twitter:image:width" content="1200" />
     <meta name="twitter:image:height" content="630" />
     <meta name="twitter:site" content="@ha_jarur" />
@@ -72,7 +83,7 @@
         "@type": "Person",
         "name": "Kartic Joshi",
         "jobTitle": "Full Stack Developer",
-        "url": "https://megahedron69.github.io/personal-porto/",
+        "url": "https://megacreate.netlify.app/",
         "sameAs": [
           "https://www.linkedin.com/in/kartic-joshi-a4558a137/",
           "https://github.com/Megahedron69"
